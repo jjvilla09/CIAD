@@ -6,7 +6,12 @@ public class Creature : MonoBehaviour
 {
     [Header("Player Stats")]
     [SerializeField] float speed;
+    int lives = 3;
+    bool hasGem = false;
     Rigidbody2D rb;
+    [SerializeField] GameObject body;
+    [SerializeField] List<AnimationStateController> animationStateControllers;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -19,18 +24,32 @@ public class Creature : MonoBehaviour
     }
 
     public void movePlayer(Vector3 direction) {
+        // Change speed
         rb.velocity = direction * speed;
-        //transform.position += direction * speed * Time.deltaTime;
-        updatePlayerDirection(direction);
+
+        // Change direction
+        if(rb.velocity.x > 0) {
+            body.transform.localScale = new Vector3(1, 1, 1);
+        } else if (rb.velocity.x < 0) {
+            body.transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+        // Change animation
+        if(rb.velocity.x == 0 && rb.velocity.y == 0) {
+            foreach(AnimationStateController asc in animationStateControllers) {
+                asc.ChangeAnimationState("JayIdle");
+            } 
+        } else {
+            foreach(AnimationStateController asc in animationStateControllers) {
+                asc.ChangeAnimationState("JayWalk-East");
+            } 
+        }
     }
 
-    void updatePlayerDirection(Vector3 direction) {
-        if(direction.x == 1) {
-            transform.localScale = new Vector3(1, 1, 1);
-            
-        } 
-        if(direction.x == -1) {
-            transform.localScale = new Vector3(-1, 1, 1); 
-        } 
+    public void setHasGemTrue() {
+        hasGem = true;
+    }
+    public void setHasGemFalse() {
+        hasGem = false;
     }
 }

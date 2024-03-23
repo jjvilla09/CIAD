@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 488894564108808646}
   - component: {fileID: 3639356103830597241}
   - component: {fileID: 7082435731238882635}
+  - component: {fileID: 614360136078642949}
   m_Layer: 0
   m_Name: green-gem
   m_TagString: Untagged
@@ -130,3 +131,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5123482, y: 0.6405115}
   m_EdgeRadius: 0
+--- !u!114 &614360136078642949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4053245545388783542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae1f65895b794a4485ea9d5fb8047d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gem: {fileID: 0}
+  jay: {fileID: 0}

@@ -11,6 +11,12 @@ public class Creature : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] GameObject body;
     [SerializeField] List<AnimationStateController> animationStateControllers;
+    [SerializeField] UIController uiController;
+    [SerializeField] FadeTransitionController ftc;
+    [SerializeField] GameObject musicBox;
+    [SerializeField] AudioSource deathSFXAudioSource;
+    [SerializeField] AudioClip deathSFXClip;
+    [SerializeField] AudioClip gemPickupClip;
     
     void Start()
     {
@@ -46,10 +52,33 @@ public class Creature : MonoBehaviour
         }
     }
 
-    public void setHasGemTrue() {
-        hasGem = true;
+    public void setHasGem(bool tv) {
+        hasGem = tv;
     }
-    public void setHasGemFalse() {
-        hasGem = false;
+
+    public bool getHasGem() {
+        return this.hasGem;
+    }
+
+    public void subtractLife() {
+        deathSFXAudioSource.PlayOneShot(deathSFXClip);
+        switch(lives) {
+            case 1: uiController.setLifeOneAlpha();
+                    ftc.FadeToColor("GameOver");
+            break;
+            case 2: uiController.setLifeTwoAlpha();
+                    lives -= 1;
+            break;
+            case 3: uiController.setLifeThreeAlpha();
+                    lives -= 1;
+            break;
+            default: Debug.Log("Lives: " + lives);
+            break;
+        }
+        
+    }
+
+    public void pickupGem() {
+        deathSFXAudioSource.PlayOneShot(gemPickupClip);
     }
 }

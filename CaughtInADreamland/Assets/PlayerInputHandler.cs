@@ -6,23 +6,9 @@ public class PlayerInputHandler : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] Creature jay;
+    [SerializeField] DoorController door;
     Vector3 input;
-
-    // [Header("Player Stats")]
-    // [SerializeField] float speed;
-
-
-    // [Header("")]
-
-
-
-
-
-    // // Start is called before the first frame update
-    // void Start()
-    // {
-        
-    // }
+    [SerializeField] FadeTransitionController ftc;
 
     // Update is called once per frame
     void Update()
@@ -40,7 +26,22 @@ public class PlayerInputHandler : MonoBehaviour
         if(Input.GetKey(KeyCode.D)) {
             input.x = 1;
         }
-
+        if(door.getIsPlayerInRange() && Input.GetKeyDown(KeyCode.E) && jay.getHasGem()) {
+            ftc.FadeToColor("MainMenu");
+        }
         jay.movePlayer(input);
     }
+
+    // public void EHandler(){
+        
+    //     StartCoroutine(EHandlerRoutine());
+    //     IEnumerator EHandlerRoutine(){
+            
+    //         while(door.isPlayerInRange){
+    //             yield return null;
+    //             if()
+    //         }
+            
+    //     }
+    // }
 }

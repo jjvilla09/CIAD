@@ -27,7 +27,7 @@ public class PlayerInputHandler : MonoBehaviour
             input.x = 1;
         }
         if(door.getIsPlayerInRange() && Input.GetKeyDown(KeyCode.E) && jay.getHasGem()) {
-            ftc.FadeToColor("MainMenu");
+            ftc.FadeToColor("Prototype02");
         }
         jay.movePlayer(input);
     }

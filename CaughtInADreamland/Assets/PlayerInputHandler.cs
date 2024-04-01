@@ -9,6 +9,7 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] DoorController door;
     Vector3 input;
     [SerializeField] FadeTransitionController ftc;
+    [SerializeField] string nextSceneName;
 
     // Update is called once per frame
     void Update()
@@ -27,11 +28,17 @@ public class PlayerInputHandler : MonoBehaviour
             input.x = 1;
         }
         if(door.getIsPlayerInRange() && Input.GetKeyDown(KeyCode.E) && jay.getHasGem()) {
-            ftc.FadeToColor("Prototype02");
+             ftc.FadeToColor(nextSceneName);
         }
+        
         jay.movePlayer(input);
     }
 
+    // public void OpenDoorHandle(string nextSceneName) {
+    //     if(door.getIsPlayerInRange() && Input.GetKeyDown(KeyCode.E) && jay.getHasGem()) {
+    //         ftc.FadeToColor(nextSceneName);
+    //     }
+    // }
     // public void EHandler(){
         
     //     StartCoroutine(EHandlerRoutine());

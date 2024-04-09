@@ -5,11 +5,11 @@ using UnityEngine;
 public class Creature : MonoBehaviour
 {
     [Header("Player Stats")]
-    [SerializeField] float speed;
+    public float speed = 0f;
     int lives = 3;
     bool hasGem = false;
     Rigidbody2D rb;
-    [SerializeField] GameObject body;
+    public GameObject body;
     [SerializeField] List<AnimationStateController> animationStateControllers;
     [SerializeField] UIController uiController;
     [SerializeField] FadeTransitionController ftc;
@@ -29,7 +29,7 @@ public class Creature : MonoBehaviour
         
     }
 
-    public void movePlayer(Vector3 direction) {
+    public void MoveCreature(Vector3 direction) {
         // Change speed
         rb.velocity = direction * speed;
 
@@ -80,5 +80,14 @@ public class Creature : MonoBehaviour
 
     public void pickupGem() {
         deathSFXAudioSource.PlayOneShot(gemPickupClip);
+    }
+
+    public void Stop(){
+        MoveCreature(Vector3.zero);
+    }
+
+    public void MoveCreatureToward(Vector3 target){
+        Vector3 direction = target - transform.position;
+        MoveCreature(direction.normalized);
     }
 }

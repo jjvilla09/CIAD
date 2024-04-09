@@ -14,7 +14,10 @@ public class PlayerInputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Player Movement Variables
         input = Vector3.zero;
+
+        // Player Movement
         if(Input.GetKey(KeyCode.W)) {
             input.y = 1;
         }
@@ -27,11 +30,13 @@ public class PlayerInputHandler : MonoBehaviour
         if(Input.GetKey(KeyCode.D)) {
             input.x = 1;
         }
+
+        jay.MoveCreature(input);
+
+        // Open Door Check
         if(door.getIsPlayerInRange() && Input.GetKeyDown(KeyCode.E) && jay.getHasGem()) {
-             ftc.FadeToColor(nextSceneName);
+            ftc.FadeToColor(nextSceneName);
         }
-        
-        jay.movePlayer(input);
     }
 
     // public void OpenDoorHandle(string nextSceneName) {

@@ -8,7 +8,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private FadeTransitionController ftc;
     
     public void Play() {
-        ftc.FadeToColor("Prototype");
+        ftc.FadeToColor("Level01");
     }
 
     public void Quit() {

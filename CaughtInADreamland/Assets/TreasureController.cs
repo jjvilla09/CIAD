@@ -7,8 +7,7 @@ public class TreasureController : MonoBehaviour
     [SerializeField] SoulFragmentSpawner sfs;
     [SerializeField] UIController uic;
     [SerializeField] PlayerInputHandler pih;
-    [SerializeField] float spawnRate;
-    [SerializeField] int rMin, rMax;
+    
     [SerializeField] Sprite openedChestSprite;
     bool isOpened = false;
     SpriteRenderer sr;
@@ -48,7 +47,7 @@ public class TreasureController : MonoBehaviour
     }
 
     void openChest() {
-        int nSoulsFound = sfs.SpawnSoulWithForce_TimedInterval(spawnRate, rMin, rMax);
+        int nSoulsFound = sfs.SpawnSoulWithForce_TimedInterval();
         isOpened = true;
         sr.sprite = openedChestSprite;
         uic.setHelperText("You found " + nSoulsFound.ToString() + " souls!") ;

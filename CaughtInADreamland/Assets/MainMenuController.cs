@@ -14,4 +14,8 @@ public class MainMenuController : MonoBehaviour
     public void Quit() {
         Application.Quit();
     }
+
+    public void Settings() {
+        ftc.FadeToColor("Settings");
+    }
 }

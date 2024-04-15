@@ -48,6 +48,10 @@ MonoBehaviour:
   thrust: 1
   gscale: 0.5
   animationTime: 0.2
+  destroySoulTimer: 25
+  spawnRate: 20
+  rMin: 10
+  rMax: 20
 --- !u!1 &3557329633432234228
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,9 +154,6 @@ MonoBehaviour:
   sfs: {fileID: 318584430485417500}
   uic: {fileID: 0}
   pih: {fileID: 0}
-  spawnRate: 1
-  rMin: 1
-  rMax: 5
   openedChestSprite: {fileID: -152292926, guid: 57e7ffab49f8ef4428d579f988a61300, type: 3}
 --- !u!58 &1894002423235396047
 CircleCollider2D:

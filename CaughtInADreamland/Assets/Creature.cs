@@ -10,17 +10,27 @@ public class Creature : MonoBehaviour
     bool hasGem = false;
     Rigidbody2D rb;
     public GameObject body;
+
+    [Header("Animation")]
     [SerializeField] List<AnimationStateController> animationStateControllers;
+
+    [Header("UI")]
     [SerializeField] UIController uiController;
+
+    [Header("Scene Changes")]
     [SerializeField] FadeTransitionController ftc;
-    [SerializeField] GameObject musicBox;
+
+    [Header("Audio")]
+    [SerializeField] AudioSource SFXAudioSource;
     [SerializeField] AudioSource deathSFXAudioSource;
+    [SerializeField] AudioSource gemPickupSFXAudioSource;
     [SerializeField] AudioClip deathSFXClip;
     [SerializeField] AudioClip gemPickupClip;
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
@@ -60,26 +70,51 @@ public class Creature : MonoBehaviour
         return this.hasGem;
     }
 
-    public void subtractLife() {
+    public void SubtractLife() {
         deathSFXAudioSource.PlayOneShot(deathSFXClip);
         switch(lives) {
-            case 1: uiController.setLifeOneAlpha();
-                    ftc.FadeToColor("GameOver");
-            break;
-            case 2: uiController.setLifeTwoAlpha();
-                    lives -= 1;
-            break;
-            case 3: uiController.setLifeThreeAlpha();
-                    lives -= 1;
-            break;
-            default: Debug.Log("Lives: " + lives);
-            break;
+            case 1: 
+                uiController.setLifeOneAlpha();
+                ftc.FadeToColor("GameOver"); // change to 'game over' scene
+                break;
+            case 2: 
+                uiController.setLifeTwoAlpha();
+                lives -= 1;
+                break;
+            case 3: 
+                uiController.setLifeThreeAlpha();
+                lives -= 1;
+                break;
+            default: 
+                Debug.Log("Lives: " + lives);
+                break;
         }
         
     }
 
+    public void AddLife() {
+        switch(lives) {
+            case 1: 
+                uiController.setLifeTwoAlpha(1f);
+                lives += 1;
+                break;
+            case 2: 
+                uiController.setLifeThreeAlpha(1f);
+                lives += 1;
+                break;
+            default: 
+                Debug.Log("Lives: " + lives);
+                break;
+        }
+        
+    }
+
+    public int GetLives() {
+        return lives;
+    }
+
     public void pickupGem() {
-        deathSFXAudioSource.PlayOneShot(gemPickupClip);
+        gemPickupSFXAudioSource.PlayOneShot(gemPickupClip);
     }
 
     public void Stop(){

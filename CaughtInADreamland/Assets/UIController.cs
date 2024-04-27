@@ -12,15 +12,33 @@ public class UIController : MonoBehaviour
     [SerializeField] Image gem;
     [SerializeField] TextMeshProUGUI helperText;
 
-    public void setLifeOneAlpha(float a = 0f) {
+    public void setLifeOneAlpha(float a = 0f, float t = 0f) {
+        float timer = 0f;
+
+        while(timer < t) {
+            life_one.color = new Color(life_one.color.r, life_one.color.g, life_one.color.b, a*(t/timer));
+        }
+
         life_one.color = new Color(life_one.color.r, life_one.color.g, life_one.color.b, a);
     }
 
-    public void setLifeTwoAlpha(float a = 0f) {
+    public void setLifeTwoAlpha(float a = 0f, float t = 0f) {
+        float timer = 0f;
+
+        while(timer < t) {
+            life_two.color = new Color(life_two.color.r, life_two.color.g, life_two.color.b, a*(t/timer));
+        }
+
         life_two.color = new Color(life_two.color.r, life_two.color.g, life_two.color.b, a);
     }
 
-    public void setLifeThreeAlpha(float a = 0f) {
+    public void setLifeThreeAlpha(float a = 0f, float t = 0f) {
+        float timer = 0f;
+
+        while(timer < t) {
+            life_three.color = new Color(life_three.color.r, life_three.color.g, life_three.color.b, a*(t/timer));
+        }
+
         life_three.color = new Color(life_three.color.r, life_three.color.g, life_three.color.b, a);
     }
     public void setGemAlpha(float a = 0f) {

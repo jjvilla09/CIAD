@@ -19,9 +19,18 @@ public class SoulCounter : MonoBehaviour
     void Start(){
 
     }
-
+    
     public void RegisterSoul(int points = 1){
         soulsCollected += points;
+        soulCounterText.text = soulsCollected.ToString();
+    }
+
+    public int GetSoulsCollected() {
+        return soulsCollected;
+    }
+
+    public void SetSoulsCollected(int value) {
+        soulsCollected = value;
         soulCounterText.text = soulsCollected.ToString();
     }
 }

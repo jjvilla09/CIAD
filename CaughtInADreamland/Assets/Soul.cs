@@ -15,10 +15,8 @@ public class Soul : MonoBehaviour
     float time = 0f;
     StartCoroutine(FloatAnimationRoutine());
     IEnumerator FloatAnimationRoutine() {
-      Debug.Log("hello float animation");
       // add force to soul with gravity
       if(soulRB != null) {
-        Debug.Log("hello float animation 1");
         soulRB.AddForce(new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 0), 0f) * thrust, ForceMode2D.Impulse);
         soulRB.gravityScale = gscale;
       }
@@ -31,7 +29,6 @@ public class Soul : MonoBehaviour
 
       // remove gravity and forces
       if(soulRB != null) {
-        Debug.Log("hello float animation 2");
         soulRB.gravityScale = 0f;
         soulRB.velocity = Vector2.zero;
       }

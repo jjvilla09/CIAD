@@ -14,11 +14,10 @@ public class SoulGrabber : MonoBehaviour
 
     void Start(){
         onSoulPickup.AddListener(PrintPickup);
-
     }
 
     void PrintPickup(){
-        Debug.Log("Picked up soul!");
+        //Debug.Log("Picked up soul!");
     }
 
     void OnTriggerEnter2D(Collider2D other){

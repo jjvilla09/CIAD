@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class SoulGrabber : MonoBehaviour
 {
     public UnityEvent onSoulPickup;
+    [SerializeField] SoulObjectPool soulObjectPool;
 
     //this is how we can pass along data to functions through our events
     // [System.Serializable]
@@ -25,7 +26,8 @@ public class SoulGrabber : MonoBehaviour
             onSoulPickup.Invoke();
             //myPickupEvent.Invoke(42); //this is how we can pass along data to functions, select the dynamic option if doing so through inspector
             GetComponent<AudioSource>().Play();
-            Destroy(other.gameObject);
+            soulObjectPool.AddSoulToFrontOfList(other.gameObject);
+            //Destroy(other.gameObject);
         }
     }
 }

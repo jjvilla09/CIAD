@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SoulFragmentSpawner : MonoBehaviour
 {
+    [SerializeField] SoulObjectPool soulObjectPool;
+
     [Header("Soul Reference Object")]
     [SerializeField] GameObject soulFragment;
     List<GameObject> newSoulFragmentList;
@@ -15,7 +17,7 @@ public class SoulFragmentSpawner : MonoBehaviour
     [SerializeField] float thrust = 1f;
     [SerializeField] float gscale = 0.5f;
     [SerializeField] float animationTime = 3f;
-    [SerializeField] float destroySoulTimer = 25f;
+    //[SerializeField] float destroySoulTimer = 25f;
 
     [Header("Spawn Statistics")]
     [SerializeField] float spawnRate;
@@ -36,14 +38,13 @@ public class SoulFragmentSpawner : MonoBehaviour
     }
 
     GameObject spawnSoul() {
-        return Instantiate(soulFragment, transform.position, Quaternion.identity);
-
+        return soulObjectPool.GetPooledSoul(transform.position, true);
     }
 
     void SpawnSoulWithForce() {
         // spawn soul
         newSoulFragment = spawnSoul();
-        Destroy(newSoulFragment, destroySoulTimer);
+        //Destroy(newSoulFragment, destroySoulTimer);
 
         // start 'float' animation
         newSoulFragment.GetComponent<Soul>().FloatAnimation(animationTime, gscale, thrust);

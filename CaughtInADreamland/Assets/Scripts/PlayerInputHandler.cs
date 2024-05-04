@@ -14,6 +14,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     [Header("Dialogue")]
     [SerializeField] DialogueController dialogueController;
+    [SerializeField] DialogueSequencer dialogueSequencer;
 
     // Update is called once per frame
     void Update()
@@ -54,22 +55,4 @@ public class PlayerInputHandler : MonoBehaviour
             DialogueBranchManager.singleton.DisplayNextSentence();
         }
     }
-
-    // public void OpenDoorHandle(string nextSceneName) {
-    //     if(door.getIsPlayerInRange() && Input.GetKeyDown(KeyCode.E) && jay.getHasGem()) {
-    //         ftc.FadeToColor(nextSceneName);
-    //     }
-    // }
-    // public void EHandler(){
-        
-    //     StartCoroutine(EHandlerRoutine());
-    //     IEnumerator EHandlerRoutine(){
-            
-    //         while(door.isPlayerInRange){
-    //             yield return null;
-    //             if()
-    //         }
-            
-    //     }
-    // }
 }

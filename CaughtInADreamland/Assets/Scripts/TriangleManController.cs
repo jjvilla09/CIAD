@@ -8,6 +8,8 @@ public class TriangleManController : MonoBehaviour, IInteractable
     bool isPlayerInRange = false;
     [SerializeField] DialogueTrigger dialogueTrigger;
     [SerializeField] PlayerInputHandler playerInputHandler;
+    [SerializeField] DialogueSequencer dialogueSequencer;
+    [SerializeField] DialogueNodeSO firstDialogueNode;
 
     public bool ProximityCheck() {
         return isPlayerInRange;
@@ -34,6 +36,7 @@ public class TriangleManController : MonoBehaviour, IInteractable
     }
 
     public void Interact() {
-        dialogueTrigger.StartDialogTrigger();
+        //dialogueTrigger.StartDialogTrigger();
+        dialogueSequencer.StartDialogueNode(firstDialogueNode);
     }
 }

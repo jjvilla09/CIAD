@@ -28,7 +28,6 @@ public class DialogueUIController : MonoBehaviour, DialogueNodeVisitor
 
     void Update() {
         if(dialogueController.state.Equals(DialogueController.DialogueState.Running) && Input.GetKeyDown(KeyCode.Space)) {
-            Debug.Log("hello");
             dialogueController.RenderTextToScreen_Skip();
         } else 
         if(!dialogueController.state.Equals(DialogueController.DialogueState.Stopped) && Input.GetKeyDown(KeyCode.Space)) {

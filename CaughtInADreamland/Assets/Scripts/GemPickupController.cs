@@ -6,8 +6,6 @@ using TMPro;
 
 public class GemPickupController : MonoBehaviour
 {
-    [SerializeField] private Image gem;
-
     [SerializeField] Creature jay;
     [SerializeField] UIController uiController;
 

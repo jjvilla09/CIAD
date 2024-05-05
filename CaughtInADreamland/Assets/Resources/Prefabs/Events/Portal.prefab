@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1747831314163344497}
   - component: {fileID: 6660111587144987044}
   - component: {fileID: 3472976188113577514}
+  - component: {fileID: 4444824779490833484}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -156,3 +157,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &4444824779490833484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370034132062990271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0dd84d3b15fc54d9220db98fc4b1d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uic: {fileID: 0}
+  shop: {fileID: 0}

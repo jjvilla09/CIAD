@@ -51,8 +51,8 @@ public class PlayerInputHandler : MonoBehaviour
             uIController.setHelperText("");
         }
 
-        if(DialogueBranchManager.singleton.state.Equals(DialogueBranchManager.DialogueState.Playing) && Input.GetKeyDown(KeyCode.Space)) {
-            DialogueBranchManager.singleton.DisplayNextSentence();
-        }
+        // if(DialogueBranchManager.singleton.state.Equals(DialogueBranchManager.DialogueState.Playing) && Input.GetKeyDown(KeyCode.Space)) {
+        //     DialogueBranchManager.singleton.DisplayNextSentence();
+        // }
     }
 }

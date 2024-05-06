@@ -10,6 +10,7 @@ public class Creature : MonoBehaviour
     bool hasGem = false;
     Rigidbody2D rb;
     public GameObject body;
+    [SerializeField] CreatureSO creatureSO;
 
     [Header("Animation")]
     [SerializeField] List<AnimationStateController> animationStateControllers;
@@ -31,12 +32,17 @@ public class Creature : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
+        if(creatureSO != null) {
+            lives = creatureSO.health;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(creatureSO != null) {
+            creatureSO.health = lives;
+        }
     }
 
     public void MoveCreature(Vector3 direction) {
@@ -75,6 +81,9 @@ public class Creature : MonoBehaviour
         switch(lives) {
             case 1: 
                 uiController.setLifeOneAlpha();
+                creatureSO.health = 3;
+                lives = 3;
+                creatureSO.soulsCollected = 0;
                 ftc.FadeToColor("GameOver"); // change to 'game over' scene
                 break;
             case 2: 

@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe8ca510bef2fe49bb5202bd48dc972, type: 3}
   m_Name: PlayerCreatureSO
   m_EditorClassIdentifier: 
+  health: 3
+  speed: 0
+  numAntiTrapDevices: 0
+  soulsCollected: 0

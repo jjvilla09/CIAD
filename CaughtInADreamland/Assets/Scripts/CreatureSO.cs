@@ -8,5 +8,6 @@ public class CreatureSO : ScriptableObject
     public int health;
     public float speed;
     public int numAntiTrapDevices;
+    public int soulsCollected;
     //float stamina;
 }

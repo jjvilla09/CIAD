@@ -11,6 +11,30 @@ public class UIController : MonoBehaviour
     [SerializeField] Image life_three;
     [SerializeField] Image gem;
     [SerializeField] TextMeshProUGUI helperText;
+    [SerializeField] CreatureSO creatureSO;
+
+    private void Start() {
+        switch(creatureSO.health) {
+            case 1:
+                setLifeOneAlpha(1f);
+                setLifeTwoAlpha(0f);
+                setLifeThreeAlpha(0f);
+                break;
+            case 2:
+                setLifeOneAlpha(1f);
+                setLifeTwoAlpha(1f);
+                setLifeThreeAlpha(0f);
+                break;
+            case 3:
+                setLifeOneAlpha(1f);
+                setLifeTwoAlpha(1f);
+                setLifeThreeAlpha(1f);
+                break;
+            default:
+                Debug.LogWarning("Player health is outside the required boundary (1-3 inclusive). Player health = " + creatureSO.health);
+                break;
+        }
+    }
 
     public void setLifeOneAlpha(float a = 0f, float t = 0f) {
         float timer = 0f;

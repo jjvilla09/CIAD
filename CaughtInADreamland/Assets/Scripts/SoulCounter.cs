@@ -9,6 +9,7 @@ public class SoulCounter : MonoBehaviour
     [SerializeField] private TextMeshProUGUI soulCounterText;
     public static SoulCounter singleton;
     int soulsCollected = 0;
+    [SerializeField] CreatureSO creatureSO;
 
     void Awake(){
         if(singleton != null){
@@ -17,11 +18,12 @@ public class SoulCounter : MonoBehaviour
         singleton = this;
     }
     void Start(){
-
+        SetSoulsCollected(creatureSO.soulsCollected);
     }
     
     public void RegisterSoul(int points = 1){
         soulsCollected += points;
+        creatureSO.soulsCollected = soulsCollected;
         soulCounterText.text = soulsCollected.ToString();
     }
 
@@ -31,6 +33,7 @@ public class SoulCounter : MonoBehaviour
 
     public void SetSoulsCollected(int value) {
         soulsCollected = value;
+        creatureSO.soulsCollected = soulsCollected;
         soulCounterText.text = soulsCollected.ToString();
     }
 }

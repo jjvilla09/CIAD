@@ -31,7 +31,7 @@ public class SettingsMenuController : MonoBehaviour
     void Start() {
         GetResolutionSettings();
         LoadSavedSettings();
-        ChooseResolution();
+        //ChooseResolution();
     }
 
     public void Back() {

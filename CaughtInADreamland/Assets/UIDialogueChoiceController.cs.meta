@@ -3,7 +3,9 @@ guid: d0e7ab19a506c4244abc49bf58752b23
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sequencer_channel: {instanceID: 0}
+  - m_Choice: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

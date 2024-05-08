@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   body: {fileID: 1658086982664354377}
+  creatureSO: {fileID: 11400000, guid: 3921d2fa081d3e044a5fbd7b24c6710f, type: 2}
   animationStateControllers:
   - {fileID: 6989761155275214593}
   uiController: {fileID: 0}
@@ -125,7 +126,7 @@ AudioSource:
   m_GameObject: {fileID: 844811639989892651}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 4838738428574891559, guid: 2c491d69643f9b540a00e4e841f5f1eb, type: 2}
+  OutputAudioMixerGroup: {fileID: -6181890428179794612, guid: 61c4d6863087dda499cfb0ce7dcf5083, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1c8c0798cfb0d1e4f98b1f968032e139, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

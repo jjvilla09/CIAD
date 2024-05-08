@@ -46,3 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueUIController: {fileID: 0}
   firstNode: {fileID: 11400000, guid: 1b9b6d37f499cca478bda9e9f5710255, type: 2}
+  ui_channel: {fileID: 11400000, guid: 8d387aef9a8ce8b4f871f74142b703dc, type: 2}
+  sequencer_channel: {fileID: 11400000, guid: 97e57884a7a41ba4389eac15403f3c79, type: 2}

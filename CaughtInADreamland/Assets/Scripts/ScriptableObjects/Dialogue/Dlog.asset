@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f915b4306a44a14a8c850f60bc22f9d, type: 3}
   m_Name: Dlog
   m_EditorClassIdentifier: 
+  textMovementEffectState: 0
+  textColorEffectState: 0
+  textModeState: 0
   narration_line: {fileID: 11400000, guid: 48a98aee41c0fcf42a1c45a0f609c62b, type: 2}
   next_node: {fileID: 11400000, guid: 77fc4928af20e1a46885d11765a63d20, type: 2}

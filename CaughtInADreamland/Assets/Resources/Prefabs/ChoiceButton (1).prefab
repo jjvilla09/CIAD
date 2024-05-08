@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0e7ab19a506c4244abc49bf58752b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequencer_channel: {fileID: 11400000, guid: 97e57884a7a41ba4389eac15403f3c79, type: 2}
   m_Choice: {fileID: 5002301158107234407}
 --- !u!1 &8926416839456244387
 GameObject:

@@ -9,32 +9,22 @@ public class DialogueSequencer : MonoBehaviour
 {  
     [SerializeField] DialogueUIController dialogueUIController;
     [SerializeField] DialogueNodeSO firstNode;
-    public DialogueEvent startEvent;
-    public DialogueEvent endEvent;
+    [SerializeField] DialogueEventSO ui_channel;
+    [SerializeField] DialogueEventSO sequencer_channel;
     DialogueNodeSO currNode;
-
-    private void Awake() {
-        if(startEvent == null) {
-            startEvent = new DialogueEvent();
-        }
-        if(endEvent == null) {
-            endEvent = new DialogueEvent();
-        }
-        startEvent.AddListener(dialogueUIController.OnDialogueNodeStart);
-        endEvent.AddListener(dialogueUIController.OnDialogueNodeEnd);
-    }
-
-    private void OnDestroy() {
-        startEvent.RemoveAllListeners();
-        endEvent.RemoveAllListeners();
-    }
-
-    private void Start() {
-        //StartDialogueNode(firstNode);
-    }
 
     bool CanStartNode(DialogueNodeSO node) {
         return (currNode == null || node == null || currNode.CanBeFollowedByNode(node));
+    }
+
+    private void OnEnable() {
+        sequencer_channel.onDialogueStart += StartDialogueNode;
+        sequencer_channel.onDialogueEnd += EndDialogueNode;
+    }
+
+    private void OnDisable() {
+        sequencer_channel.onDialogueStart -= StartDialogueNode;
+        sequencer_channel.onDialogueEnd -= EndDialogueNode;
     }
 
     public void StartDialogueNode(DialogueNodeSO node) {
@@ -43,7 +33,7 @@ public class DialogueSequencer : MonoBehaviour
             currNode = node;
 
             if(currNode != null) {
-                startEvent.Invoke(node);
+                ui_channel.RaiseDialogueStartEvent(node);
             } else {
                 EndDialogueNode(node);
             }
@@ -55,7 +45,7 @@ public class DialogueSequencer : MonoBehaviour
     void EndDialogueNode(DialogueNodeSO node) {
         if(currNode == node) {
             currNode = null;
-            endEvent.Invoke(node);
+            ui_channel.RaiseDialogueEndEvent(node);
         } else {
             Debug.LogWarning("Trying to stop a dialogue that isn't running.");
         }

@@ -6,15 +6,9 @@ public class PlayerInputHandler : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] Creature jay;
-    [SerializeField] DoorController door;
     Vector3 input;
     [SerializeField] UIController uIController;
     [SerializeField] InteractableRangeFinder interactableRangeFinder;
-    IInteractable interactable;
-
-    [Header("Dialogue")]
-    [SerializeField] DialogueController dialogueController;
-    [SerializeField] DialogueSequencer dialogueSequencer;
 
     // Update is called once per frame
     void Update()
@@ -50,9 +44,9 @@ public class PlayerInputHandler : MonoBehaviour
         } else {
             uIController.setHelperText("");
         }
+    }
 
-        // if(DialogueBranchManager.singleton.state.Equals(DialogueBranchManager.DialogueState.Playing) && Input.GetKeyDown(KeyCode.Space)) {
-        //     DialogueBranchManager.singleton.DisplayNextSentence();
-        // }
+    private void OnDisable() {
+        uIController.setHelperText("");
     }
 }

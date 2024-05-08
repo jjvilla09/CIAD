@@ -44,9 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cf7cc1b26753c47b1720483e0a2e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueController: {fileID: 0}
-  dialogueSequencer: {fileID: 0}
+  dialogueText: {fileID: 0}
+  dialogueCanvas: {fileID: 0}
   ChoiceButtonPrefab: {fileID: 2940646341240235707, guid: ce76a36eee1342341a691fd053cc0e9a, type: 3}
   ChoiceButtonContainer: {fileID: 0}
   helperText: {fileID: 0}
   characterNameText: {fileID: 0}
+  ui_channel: {fileID: 11400000, guid: 8d387aef9a8ce8b4f871f74142b703dc, type: 2}
+  sequencer_channel: {fileID: 11400000, guid: 97e57884a7a41ba4389eac15403f3c79, type: 2}
+  void_dialogue_channel: {fileID: 11400000, guid: 4fe007f4440c3334da19e8a58062a832, type: 2}
+  textRenderer: {fileID: 0}

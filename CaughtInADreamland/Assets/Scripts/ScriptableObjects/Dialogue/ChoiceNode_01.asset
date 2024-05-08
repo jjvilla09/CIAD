@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7103e5246eabdb40bbe368fe8fe7426, type: 3}
   m_Name: ChoiceNode_01
   m_EditorClassIdentifier: 
+  textMovementEffectState: 1
+  textColorEffectState: 0
+  textModeState: 0
   narration_line: {fileID: 11400000, guid: 798413b5c29c8c94786138201c1ef9e3, type: 2}
   choices:
   - choice_preview: Yes

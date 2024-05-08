@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soulCounterText: {fileID: 7627716374366209595}
+  creatureSO: {fileID: 0}
 --- !u!1 &605022090098791337
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +502,9 @@ MonoBehaviour:
   state: 0
   dialogueText: {fileID: 884725470082794094}
   canvas: {fileID: 5416608781647542589}
+  AngleMultiplier: 1
+  SpeedMultiplier: 1
+  CurveScale: 1
 --- !u!1 &3017359389761802351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,6 +1523,7 @@ MonoBehaviour:
   life_three: {fileID: 1924575993918075725}
   gem: {fileID: 8210331790105014972}
   helperText: {fileID: 959084651771038456}
+  creatureSO: {fileID: 11400000, guid: 3921d2fa081d3e044a5fbd7b24c6710f, type: 2}
 --- !u!1 &7507195548526592861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,6 +1764,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3260398150570081386, guid: bd8714dd2cfc78041a29f078570f159b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4166737943596091804, guid: bd8714dd2cfc78041a29f078570f159b, type: 3}
+      propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8300604336253048450, guid: bd8714dd2cfc78041a29f078570f159b, type: 3}

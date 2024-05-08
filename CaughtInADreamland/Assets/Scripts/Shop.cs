@@ -35,11 +35,12 @@ public class Shop : MonoBehaviour
 
     public void OpenShop() {
         shopCanvas.enabled = true;
-        Debug.Log("Opened Shop");
+        Time.timeScale = 0f;
     }
 
     public void CloseShop() {
         shopCanvas.enabled = false;
+        Time.timeScale = 1f;
     }
 
     public void BuyHealth() {

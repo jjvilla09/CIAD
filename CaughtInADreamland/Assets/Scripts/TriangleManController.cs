@@ -36,7 +36,6 @@ public class TriangleManController : MonoBehaviour, IInteractable
     }
 
     public void Interact() {
-        //dialogueTrigger.StartDialogTrigger();
         dialogueSequencer.StartDialogueNode(firstDialogueNode);
     }
 }

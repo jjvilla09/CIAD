@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIDialogueChoiceController : MonoBehaviour
 {
-    public DialogueEvent requestStartEvent;
+    [SerializeField] DialogueEventSO sequencer_channel;
     [SerializeField] private TextMeshProUGUI m_Choice;
 
     DialogueSequencer dialogueSequencer;
@@ -25,24 +25,12 @@ public class UIDialogueChoiceController : MonoBehaviour
     }
 
     private void Awake() {
-        if(requestStartEvent == null) {
-            requestStartEvent = new DialogueEvent();
-        }
         ChoiceButton = GetComponent<Button>();
-    }
-
-    private void OnDestroy() {
-        requestStartEvent.RemoveAllListeners();
+        ChoiceButton.onClick.AddListener(OnClick);
     }
 
     private void OnClick()
     {
-        requestStartEvent.Invoke(m_ChoiceNextNode);
-    }
-
-    public void ConnectSequencer(DialogueSequencer dialogueSequencer) {
-        this.dialogueSequencer = dialogueSequencer;
-        requestStartEvent.AddListener(dialogueSequencer.StartDialogueNode);
-        ChoiceButton.onClick.AddListener(OnClick);
+        sequencer_channel.onDialogueStart.Invoke(m_ChoiceNextNode);
     }
 }
